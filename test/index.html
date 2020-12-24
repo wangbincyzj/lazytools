@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../bundle.js"></script>
+
+  <script>
+
+    let data = {
+      age: "",
+    }
+
+    let rule = {
+      name: [rules.require("用户名为必填项"), rules.length(3)],
+      age: [rules.require(), rules.length(3)],
+      info: {
+        phone: [rules.regex(/abcd/, "手机号格式不正确")]
+      }
+    }
+
+    let ret = checkObject(data, rule)
+    console.log(ret)
+  </script>
+</body>
+</html>
